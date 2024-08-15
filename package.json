@@ -1,0 +1,24 @@
+{
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "bun index.ts",
+    "dev": "bun --hot index.ts",
+    "build:compile": "NODE_ENV='production' bun build ./index.ts --outfile dist/server --compile --target=bun-linux-arm64",
+    "build:image": "docker build -t app .",
+    "build:production": "bun build:compile && bun build:image",
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "serve": "bun up -- --no-deps --build web"
+  },
+  "dependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
