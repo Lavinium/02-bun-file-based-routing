@@ -8,7 +8,7 @@
   "scripts": {
     "start": "bun index.ts",
     "dev": "bun --hot index.ts",
-    "build:compile": "NODE_ENV='production' bun build ./index.ts --outfile dist/server --compile --target=bun-linux-arm64",
+    "build:compile": "NODE_ENV='production' bun build ./index.ts --outfile dist/server --compile",
     "build:image": "docker build -t app .",
     "build:production": "bun build:compile && bun build:image",
     "up": "docker compose up -d",
